@@ -1,0 +1,283 @@
+{
+    "name": "Material Deep Ocean",
+    "author": "Ported from the Material Theme UI \"Deep Ocean\" variant",
+    "variables": {
+        "bg":              "#0F111A",
+        "bg_alt":          "#181A1F",
+        "bg_deep":         "#090B10",
+        "fg":              "#C3CEE3",
+        "fg_bright":       "#EEFFFF",
+        "fg_dim":          "#8F93A2",
+
+        "comment":         "#717CB4",
+        "selection":       "#3B3F51",
+        "line_highlight":  "#1B2529",
+        "caret":           "#FFCC00",
+        "guide":           "#3B3F51",
+        "active_guide":    "#84FFFF",
+        "gutter_fg":       "#475F63",
+        "gutter_fg_caret": "#525975",
+
+        "red":             "#F07178",
+        "red_bright":      "#FF5370",
+        "orange":          "#F78C6C",
+        "yellow":          "#FFCB6B",
+        "green":           "#C3E88D",
+        "cyan":            "#89DDFF",
+        "teal":            "#84FFFF",
+        "blue":            "#82AAFF",
+        "purple":          "#C792EA",
+        "white":           "#EEFFFF"
+    },
+    "globals": {
+        "background":               "var(bg)",
+        "foreground":               "var(fg)",
+        "caret":                    "var(caret)",
+        "block_caret":              "var(caret)",
+        "line_highlight":           "var(line_highlight)",
+        "misspelling":              "var(red_bright)",
+        "selection":                "var(selection)",
+        "selection_foreground":     "var(fg_bright)",
+        "inactive_selection":       "#3B3F5180",
+        "guide":                    "var(guide)",
+        "active_guide":             "var(active_guide)",
+        "stack_guide":              "var(guide)",
+        "gutter":                   "var(bg)",
+        "gutter_foreground":        "var(gutter_fg)",
+        "find_highlight":           "var(yellow)",
+        "find_highlight_foreground":"var(bg)",
+        "brackets_options":         "underline",
+        "brackets_foreground":      "var(cyan)",
+        "bracket_contents_options": "underline",
+        "bracket_contents_foreground":"var(cyan)",
+        "tags_options":             "stippled_underline",
+        "shadow":                   "#00000066",
+        "line_diff_width":          "3",
+        "line_diff_added":          "var(green)",
+        "line_diff_modified":       "var(yellow)",
+        "line_diff_deleted":        "var(red)"
+    },
+    "rules": [
+        {
+            "name": "Comment",
+            "scope": "comment, punctuation.definition.comment",
+            "foreground": "var(comment)",
+            "font_style": "italic"
+        },
+        {
+            "name": "Python docstrings — green (matches IntelliJ which treats them as strings, not comments)",
+            "scope": "comment.block.documentation, comment.block.documentation.python, string.quoted.docstring",
+            "foreground": "var(green)",
+            "font_style": ""
+        },
+        {
+            "name": "String",
+            "scope": "string, string.quoted, punctuation.definition.string",
+            "foreground": "var(green)"
+        },
+        {
+            "name": "Escape sequences",
+            "scope": "constant.character.escape",
+            "foreground": "var(cyan)"
+        },
+        {
+            "name": "Number / boolean / language constant",
+            "scope": "constant.numeric, constant.language, constant.other",
+            "foreground": "var(orange)"
+        },
+        {
+            "name": "All keywords — purple italic (import/from/for/if/else/try/return/def/class/lambda/etc.)",
+            "scope": "keyword, keyword.control, keyword.control.import, keyword.control.flow, keyword.control.conditional, keyword.control.loop, keyword.control.exception, keyword.control.trycatch, keyword.control.context, keyword.other, keyword.other.import, keyword.other.using, keyword.declaration, keyword.other.fn, keyword.other.lambda, storage.type, storage.modifier",
+            "foreground": "var(purple)",
+            "font_style": "italic"
+        },
+        {
+            "name": "Operators — cyan (not italic)",
+            "scope": "keyword.operator, keyword.operator.arithmetic, keyword.operator.assignment, keyword.operator.comparison, keyword.operator.logical",
+            "foreground": "var(cyan)",
+            "font_style": ""
+        },
+        {
+            "name": "Function definition name",
+            "scope": "entity.name.function, meta.function entity.name.function, meta.function-declaration entity.name.function",
+            "foreground": "var(blue)"
+        },
+        {
+            "name": "Function calls",
+            "scope": "meta.function-call entity.name.function, variable.function, support.function",
+            "foreground": "var(blue)"
+        },
+        {
+            "name": "Built-in / predefined (blue italic)",
+            "scope": "support.function.builtin, variable.language.builtin, support.type.builtin",
+            "foreground": "var(blue)",
+            "font_style": "italic"
+        },
+        {
+            "name": "Class name (declaration) — yellow",
+            "scope": "entity.name.class, entity.name.type.class",
+            "foreground": "var(yellow)"
+        },
+        {
+            "name": "Type annotations (param / return) — yellow (IntelliJ CLASS_NAME)",
+            "scope": "meta.function.parameters.annotation meta.generic-name, meta.function.parameters.annotation meta.type, meta.function.return-type meta.generic-name, meta.function.return-type meta.type, meta.annotation.python meta.generic-name.python, meta.type.python meta.generic-name.python",
+            "foreground": "var(yellow)"
+        },
+        {
+            "name": "Class reference / type name — green italic (inheritance, standalone type refs)",
+            "scope": "entity.other.inherited-class, support.class, support.type, entity.name.type",
+            "foreground": "var(green)",
+            "font_style": "italic"
+        },
+        {
+            "name": "Interface names — green italic",
+            "scope": "entity.name.interface, entity.name.type.interface",
+            "foreground": "var(green)",
+            "font_style": "italic"
+        },
+        {
+            "name": "Parameters — orange italic",
+            "scope": "variable.parameter, meta.function.parameters variable",
+            "foreground": "var(orange)",
+            "font_style": "italic"
+        },
+        {
+            "name": "Keyword arguments (Python kwargs) — orange",
+            "scope": "variable.parameter.function-call.python, meta.function-call.arguments variable.parameter",
+            "foreground": "var(orange)"
+        },
+        {
+            "name": "self / this / super — bright red italic",
+            "scope": "variable.language.self, variable.language.this, variable.language.super, variable.language",
+            "foreground": "var(red_bright)",
+            "font_style": "italic"
+        },
+        {
+            "name": "Instance/static fields — bright white",
+            "scope": "variable.other.member, variable.other.property",
+            "foreground": "var(fg_bright)"
+        },
+        {
+            "name": "Variables",
+            "scope": "variable, variable.other",
+            "foreground": "var(fg)"
+        },
+        {
+            "name": "Decorators / annotations — blue",
+            "scope": "meta.decorator, meta.annotation, punctuation.decorator, entity.name.function.decorator, variable.annotation",
+            "foreground": "var(blue)"
+        },
+        {
+            "name": "Attributes (e.g. @property target, XML attrs) — yellow italic",
+            "scope": "entity.other.attribute-name",
+            "foreground": "var(yellow)",
+            "font_style": "italic"
+        },
+        {
+            "name": "Punctuation — cyan (commas, colons, dots, semicolons)",
+            "scope": "punctuation.separator, punctuation.terminator, punctuation.accessor",
+            "foreground": "var(cyan)"
+        },
+        {
+            "name": "Brackets / braces / parens — cyan",
+            "scope": "punctuation.section, meta.brace, punctuation.section.block, punctuation.section.brackets, punctuation.section.parens",
+            "foreground": "var(cyan)"
+        },
+        {
+            "name": "General punctuation fallback",
+            "scope": "punctuation",
+            "foreground": "var(fg)"
+        },
+        {
+            "name": "HTML/XML/JSX tag names — red",
+            "scope": "entity.name.tag",
+            "foreground": "var(red)"
+        },
+        {
+            "name": "Invalid",
+            "scope": "invalid",
+            "foreground": "var(fg_bright)",
+            "background": "var(red_bright)"
+        },
+        {
+            "name": "Invalid deprecated",
+            "scope": "invalid.deprecated",
+            "foreground": "var(fg_bright)",
+            "background": "var(purple)"
+        },
+        {
+            "name": "Diff inserted",
+            "scope": "markup.inserted",
+            "foreground": "var(green)"
+        },
+        {
+            "name": "Diff deleted",
+            "scope": "markup.deleted",
+            "foreground": "var(red)"
+        },
+        {
+            "name": "Diff changed",
+            "scope": "markup.changed",
+            "foreground": "var(yellow)"
+        },
+        {
+            "name": "Markdown heading",
+            "scope": "markup.heading, entity.name.section",
+            "foreground": "var(green)",
+            "font_style": "bold"
+        },
+        {
+            "name": "Markdown bold",
+            "scope": "markup.bold",
+            "foreground": "var(red)",
+            "font_style": "bold"
+        },
+        {
+            "name": "Markdown italic",
+            "scope": "markup.italic",
+            "foreground": "var(red)",
+            "font_style": "italic"
+        },
+        {
+            "name": "Markdown inline code",
+            "scope": "markup.raw.inline",
+            "foreground": "var(purple)"
+        },
+        {
+            "name": "Markdown link text",
+            "scope": "markup.underline.link, string.other.link",
+            "foreground": "var(blue)",
+            "font_style": "underline"
+        },
+        {
+            "name": "Markdown link URL",
+            "scope": "markup.underline.link meta.link, meta.link markup.underline",
+            "foreground": "var(orange)"
+        },
+        {
+            "name": "JSON / mapping keys — red",
+            "scope": "meta.mapping.key string, support.type.property-name",
+            "foreground": "var(red)"
+        },
+        {
+            "name": "YAML keys",
+            "scope": "entity.name.tag.yaml",
+            "foreground": "var(red)"
+        },
+        {
+            "name": "CSS property",
+            "scope": "support.type.property-name.css",
+            "foreground": "var(cyan)"
+        },
+        {
+            "name": "CSS value",
+            "scope": "support.constant.property-value.css, meta.property-value.css",
+            "foreground": "var(fg)"
+        },
+        {
+            "name": "Regex",
+            "scope": "string.regexp",
+            "foreground": "var(cyan)"
+        }
+    ]
+}
